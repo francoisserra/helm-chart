@@ -44,6 +44,10 @@ spec:
             - --worker-port
             - {{ .Values.worker.port | quote }}
           {{- end }}
+          {{- if .Values.worker.local_directory }}
+            - --local-directory
+            - {{ .Values.worker.local_directory | quote }}
+          {{- end }}
           ports:
             - containerPort: 8789
           resources:
